@@ -1,0 +1,10 @@
+# Editor stuff
+.vscode
+.idea
+
+# Vendir stuff
+vendir.lock.yml
+vendir
+
+# Our example repo
+saa-spring-petclinic
