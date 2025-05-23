@@ -4,7 +4,9 @@ This demo script uses demo magic to ensure ease of use, but there are prerequisi
 
 ### Pre-Reqs
 
-Vendir, Spring Application Advisor, Git
+CLI Tools - Vendir, Spring Application Advisor, Git
+
+[Target Repo for Pull Requests](https://github.com/emosher/saa-spring-petclinic)
 
 You also need the environment variable GIT_TOKEN_FOR_PRS set, with access to the target application repo (set as a variable in the script).  
 
