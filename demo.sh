@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+# Default values
 TEMP_DIR="saa-spring-petclinic"
+SKIP_PR=false
 
 check_dependencies() {
     local tools=("vendir" "advisor" "git")
@@ -37,11 +39,20 @@ export DEMO_PROMPT="${GREEN}➜ ${CYAN}\W ${COLOR_RESET}"
 export PROMPT_TIMEOUT=0
 
 # Set up, clone the app and go to our new directory
+clear
 rm -rf "$TEMP_DIR"
 clone_app
 cd "$TEMP_DIR" || exit 1
 
 clear
-pe "advisor build-config get"
-pe "advisor upgrade-plan get"
-pe "advisor upgrade-plan apply --push"
+displayMessage "Upgrade Spring Pet Clinic from version 2.7.x to 3.0.x"
+pei "ls -la"
+
+pei "advisor build-config get"
+pei "advisor upgrade-plan get"
+if [[ "$SKIP_PR" == false ]]; then
+    pei "advisor upgrade-plan apply --push"
+else
+    pei "advisor upgrade-plan apply"
+fi
+
